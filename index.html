@@ -48,10 +48,23 @@ box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo{
+display:flex;
+align-items:center;
+gap:10px;
 font-size:22px;
 font-weight:600;
 color:white;
 }
+
+header.scrolled .logo{
+color:black;
+}
+
+.logo-img{
+height:40px;
+width:auto;
+}
+
 
 header.scrolled .logo{
 color:black;
@@ -85,11 +98,10 @@ color:black;
 }
 
 /* HERO */
-
 .hero{
 height:100vh;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-url("https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?q=80&w=1920");
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+url("hero.jpg");
 background-size:cover;
 background-position:center;
 display:flex;
@@ -97,7 +109,6 @@ align-items:center;
 justify-content:center;
 text-align:center;
 color:white;
-padding:20px;
 }
 
 .hero h1{
@@ -295,8 +306,10 @@ font-size:32px;
 
 <header id="header">
 
-<div class="logo">Fancy Vastralaya</div>
-
+<div class="logo">
+<img src="fv-logo.png" alt="FV Logo" class="logo-img">
+<span>Fancy Vastralaya</span>
+</div>
 <nav>
 
 <ul id="menu">
