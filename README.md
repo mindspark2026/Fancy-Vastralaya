@@ -6,6 +6,7 @@ The website provides information about the shop, products available, and contact
 ## 🏪 About the Shop
 
 **Fancy Vastralaya** is a trusted clothing and fabric store that offers a variety of textile products at affordable prices. The shop serves customers in Daudnagar and nearby areas.
+our website :-https://mindspark2026.github.io/Fancy-Vastralaya/     
 
 ### Products Available
 
@@ -15,7 +16,7 @@ The website provides information about the shop, products available, and contact
 * Towels
 * Bedsheets
 * Mosquito Nets
-our website :-https://mindspark2026.github.io/Fancy-Vastralaya/
+
 ## 📍 Business Details
 
 **Address:**
