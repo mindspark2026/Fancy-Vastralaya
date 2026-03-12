@@ -382,7 +382,7 @@ and mosquito nets at affordable prices.
 </div>
 
 <div class="product-card">
-<img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=800">
+<img src="https://m.media-amazon.com/images/I/61OLA2QriBL._SX679_.jpg?q=80&w=800" alt ="Shirt">
 <div class="product-info">
 <h3>Shirt Cloth</h3>
 <p>Premium fabrics for shirts.</p>
@@ -390,7 +390,7 @@ and mosquito nets at affordable prices.
 </div>
 
 <div class="product-card">
-<img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800">
+<img src="https://m.media-amazon.com/images/I/71N9nh4-NkL._SX679_.jpg?q=80&w=800" alt="pant">
 <div class="product-info">
 <h3>Pant Cloth</h3>
 <p>Durable pant fabrics.</p>
@@ -398,7 +398,7 @@ and mosquito nets at affordable prices.
 </div>
 
 <div class="product-card">
-<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800">
+<img src="https://livpure.com/cdn/shop/articles/family-spending-time-together-outside_23-2148659464_77e2da7d-9d11-4cff-bd82-7f51fca535be.jpg?q=80&w=800" alt="towels">
 <div class="product-info">
 <h3>Towels</h3>
 <p>Soft and comfortable towels.</p>
@@ -406,7 +406,7 @@ and mosquito nets at affordable prices.
 </div>
 
 <div class="product-card">
-<img src="https://images.unsplash.com/photo-1616627981439-99d812b23b35?q=80&w=800">
+<img src="https://www.theintellectbazaar.in/cdn/shop/products/product_main_image_1628665237_108-Mrn-zigzag-Blue..1.jpg?q=80&w=800" alt="bedsheets">
 <div class="product-info">
 <h3>Bedsheets</h3>
 <p>Stylish and comfortable bedsheets.</p>
@@ -414,7 +414,7 @@ and mosquito nets at affordable prices.
 </div>
 
 <div class="product-card">
-<img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800">
+<img src="https://m.media-amazon.com/images/I/61TLmrIM8+L._SX679_.jpg?q=80&w=800" alt="mosquito nets">
 <div class="product-info">
 <h3>Mosquito Nets</h3>
 <p>Safe protection for peaceful sleep.</p>
@@ -452,12 +452,27 @@ and mosquito nets at affordable prices.
 <p>9031845055</p>
 </div>
 </div>
-
+  
+<div class="contact-item">
+<i class="fa fa-envelope"></i>
+<div>
+<b>Email</b>
+<p>naveenjifancy@gmail.com</p>
+</div>
 </div>
 
+</div>
+<h2>Our Location</h2>
 <div class="map">
-<iframe src="https://maps.google.com/maps?q=Daudnagar%20Bihar&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-</div>
+
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.9894782021065!2d84.40285477456051!3d25.034431138275693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398d0fad1348b8b1%3A0xf96f9ca558027c10!2sFancy%20Vastralaya!5e0!3m2!1sen!2sin!4v1773301673475!5m2!1sen!2sin"
+width="100%" 
+height="350"
+style="border:0;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
 
 </div>
 
@@ -465,7 +480,7 @@ and mosquito nets at affordable prices.
 
 <footer>
 
-<p>© 2026 Fancy Vastralaya | Daudnagar Bihar</p>
+<p>© <span id="year"></span> Fancy Vastralaya | Daudnagar, Bihar</p>
 
 </footer>
 
@@ -475,18 +490,20 @@ and mosquito nets at affordable prices.
 
 <script>
 
-const hamburger=document.getElementById("hamburger");
-const menu=document.getElementById("menu");
+document.getElementById("year").textContent = new Date().getFullYear();
 
-hamburger.onclick=()=>{
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.onclick = () => {
 menu.classList.toggle("active");
 };
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function(){
 
-const header=document.getElementById("header");
+const header = document.getElementById("header");
 
-if(window.scrollY>50){
+if(window.scrollY > 50){
 header.classList.add("scrolled");
 }else{
 header.classList.remove("scrolled");
