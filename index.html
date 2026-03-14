@@ -114,6 +114,28 @@ padding:6px 12px;
 border-radius:20px;
 border:1px solid #ccc;
 }
+  .cart-icon{
+font-size:22px;
+margin-left:15px;
+cursor:pointer;
+position:relative;
+color:white;
+}
+
+header.scrolled .cart-icon{
+color:black;
+}
+
+#cartCount{
+position:absolute;
+top:-8px;
+right:-10px;
+background:red;
+color:white;
+font-size:12px;
+padding:2px 6px;
+border-radius:50%;
+}
 
 /* HAMBURGER */
 
@@ -242,14 +264,18 @@ font-size:14px;
 .cart{
 position:fixed;
 right:20px;
-top:100px;
+top:-400px;
 background:white;
 padding:15px;
 border-radius:10px;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
 width:250px;
+transition:0.4s;
 }
 
+.cart.show{
+top:90px;
+}
 /* CONTACT */
 
 .contact-container{
@@ -383,7 +409,11 @@ font-size:32px;
 </nav>
 <div class="search-box">
 <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
-</div>  
+</div>
+  <div class="cart-icon" onclick="toggleCart()">
+<i class="fas fa-shopping-cart"></i>
+<span id="cartCount">0</span>
+</div>
 
 </header>
 
@@ -620,7 +650,8 @@ let existing=cart.find(p=>p.name===name)
 if(existing){existing.qty+=1}
 else{cart.push({name,price,qty:1})}
 
-updateCart()
+updateCart(document.getElementById("cartCount").innerText = cart.length)
+  document.querySelector(".cart").classList.add("show")
 
 }
 
@@ -759,6 +790,9 @@ header.classList.remove("scrolled");
 }
 
 });
+  function toggleCart(){
+document.querySelector(".cart").classList.toggle("show")
+}
 
 </script>
 
