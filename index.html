@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Fancy Vastralaya | Clothing Store</title>
-
 <meta name="description" content="Fancy Vastralaya me aapko milega stylish aur comfortable kapde online. Browse aur shop karo abhi!">
 <meta name="keywords" content="Fancy Vastralaya, Online Clothes, Stylish Clothes, Comfortable Clothes">
 <meta name="author" content="Abhishek">
@@ -20,473 +17,83 @@
 <meta property="og:image:height" content="630">
 
 <link rel="icon" type="image/png" href="fv-logo.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-
 /* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-/* BODY */
-
-body{
-font-family:'Poppins',sans-serif;
-background:#f8f6f2;
-color:#333;
-scroll-behavior:smooth;
-}
-
-h1,h2,h3{
-font-family:'Playfair Display',serif;
-}
-
-/* HEADER */
-
-header{
-position:fixed;
-top:0;
-width:100%;
-padding:15px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:transparent;
-z-index:1000;
-transition:0.3s;
-}
-
-header.scrolled{
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* LOGO */
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:22px;
-font-weight:600;
-color:white;
-}
-
-header.scrolled .logo{
-color:black;
-}
-
-.logo-img{
-height:40px;
-width:auto;
-}
-
-/* NAVIGATION */
-
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-nav a{
-text-decoration:none;
-color:white;
-font-weight:500;
-}
-
-header.scrolled nav a{
-color:black;
-}
-
-/* SEARCH BOX */
-
-.search-box input{
-padding:6px 12px;
-border-radius:20px;
-border:1px solid #ccc;
-}
-  .cart-icon{
-font-size:22px;
-margin-left:15px;
-cursor:pointer;
-position:relative;
-color:white;
-}
-
-header.scrolled .cart-icon{
-color:black;
-}
-
-#cartCount{
-position:absolute;
-top:-8px;
-right:-10px;
-background:red;
-color:white;
-font-size:12px;
-padding:2px 6px;
-border-radius:50%;
-}
-
-/* HAMBURGER */
-
-.hamburger{
-display:none;
-font-size:22px;
-color:white;
-cursor:pointer;
-}
-
-header.scrolled .hamburger{
-color:black;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("hero.png");
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
-
-.hero h1{
-font-size:50px;
-margin-bottom:10px;
-}
-
-.hero p{
-margin-bottom:20px;
-}
-
-/* BUTTONS */
-
-.btn{
-padding:12px 25px;
-border-radius:30px;
-text-decoration:none;
-margin:5px;
-display:inline-block;
-font-weight:600;
-}
-
-.btn-primary{
-background:#d4af37;
-color:white;
-border:none;
-}
-
-.btn-outline{
-border:2px solid white;
-color:white;
-}
-
-/* SECTIONS */
-
-section{
-padding:80px 8%;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:40px;
-}
-
-.section-title h2{
-font-size:32px;
-}
-
-/* ABOUT */
-
-.about{
-background:white;
-text-align:center;
-}
-
-.about p{
-max-width:700px;
-margin:auto;
-color:#666;
-}
-
-/* PRODUCTS */
-
-.products-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.product-card{
-background:white;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-transition:0.3s;
-}
-
-.product-card:hover{
-transform:translateY(-10px);
-}
-
-.product-card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.product-info{
-padding:15px;
-text-align:center;
-}
-
-.product-info p{
-color:#666;
-font-size:14px;
-}
-  .product-info button{
-background:#d4af37;
-color:white;
-border:none;
-padding:10px 18px;
-border-radius:25px;
-font-size:14px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.product-info button:hover{
-background:#b8962f;
-transform:scale(1.05);
-}
-
-.cart{
-position:fixed;
-right:20px;
-top:-400px;
-width:280px;
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-transition:0.4s;
-z-index:1000;
-}
-
-.cart.show{
-top:90px;
-}
-
-#cartItems div{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:8px;
-border-bottom:1px dashed #eee;
-padding:5px 0;
-}
-
-.qty-btn{
-background:#d4af37;
-border:none;
-color:white;
-padding:2px 6px;
-border-radius:4px;
-cursor:pointer;
-font-size:12px;
-}
-
-.remove{
-color:red;
-cursor:pointer;
-margin-left:5px;
-}
-
-.cart input,
-.cart textarea{
-width:100%;
-padding:8px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-.cart button{
-width:100%;
-padding:10px;
-border:none;
-background:#25d366;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-.cart-popup{
-position:fixed;
-bottom:30px;
-left:50%;
-transform:translateX(-50%);
-background:#333;
-color:white;
-padding:12px 25px;
-border-radius:30px;
-opacity:0;
-transition:0.3s;
-}
-
-.cart-popup.show{
-opacity:1;
-bottom:50px;
-}
-
-/* CART */
-
-.cart{
-position:fixed;
-right:20px;
-top:-400px;
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
-width:250px;
-transition:0.4s;
-}
-
-.cart.show{
-top:90px;
-}
-/* CONTACT */
-
-.contact-container{
-display:flex;
-flex-wrap:wrap;
-gap:30px;
-}
-
-.contact-info{
-flex:1;
-min-width:250px;
-}
-
-.contact-item{
-display:flex;
-margin-bottom:15px;
-}
-
-.contact-item i{
-font-size:20px;
-margin-right:10px;
-color:#d4af37;
-}
-
-.map{
-flex:1;
-min-width:250px;
-height:350px;
-}
-
-iframe{
-width:100%;
-height:100%;
-border:none;
-}
-
-/* WHATSAPP BUTTON */
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25d366;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:white;
-text-decoration:none;
-}
-
-/* FOOTER */
-
-footer{
-background:#111;
-color:#aaa;
-padding:40px 8%;
-text-align:center;
-}
-
-/* REVIEWS */
-
-.review{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-}
-
-/* MOBILE */
-
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f8f6f2;color:#333;scroll-behavior:smooth;}
+h1,h2,h3{font-family:'Playfair Display',serif;}
+header{position:fixed;top:0;width:100%;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;background:transparent;z-index:1000;transition:0.3s;}
+header.scrolled{background:white;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:600;color:white;}
+header.scrolled .logo{color:black;}
+.logo-img{height:40px;width:auto;}
+nav ul{display:flex;gap:25px;list-style:none;}
+nav a{text-decoration:none;color:white;font-weight:500;}
+header.scrolled nav a{color:black;}
+.search-box input{padding:6px 12px;border-radius:20px;border:1px solid #ccc;}
+.cart-icon{font-size:22px;margin-left:15px;cursor:pointer;position:relative;color:white;}
+header.scrolled .cart-icon{color:black;}
+#cartCount{position:absolute;top:-8px;right:-10px;background:red;color:white;font-size:12px;padding:2px 6px;border-radius:50%;}
+.hamburger{display:none;font-size:22px;color:white;cursor:pointer;}
+header.scrolled .hamburger{color:black;}
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("hero.png");background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:white;}
+.hero h1{font-size:50px;margin-bottom:10px;}
+.hero p{margin-bottom:20px;}
+.btn{padding:12px 25px;border-radius:30px;text-decoration:none;margin:5px;display:inline-block;font-weight:600;}
+.btn-primary{background:#d4af37;color:white;border:none;}
+.btn-outline{border:2px solid white;color:white;}
+section{padding:80px 8%;}
+.section-title{text-align:center;margin-bottom:40px;}
+.section-title h2{font-size:32px;}
+.about{background:white;text-align:center;}
+.about p{max-width:700px;margin:auto;color:#666;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.product-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);transition:0.3s;}
+.product-card:hover{transform:translateY(-10px);}
+.product-card img{width:100%;height:200px;object-fit:cover;}
+.product-info{padding:15px;text-align:center;}
+.product-info p{color:#666;font-size:14px;}
+.product-info button{background:#d4af37;color:white;border:none;padding:10px 18px;border-radius:25px;font-size:14px;cursor:pointer;transition:0.3s;}
+.product-info button:hover{background:#b8962f;transform:scale(1.05);}
+.cart{position:fixed;right:20px;top:-400px;width:280px;background:white;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);transition:0.4s;z-index:1000;}
+.cart.show{top:90px;}
+#cartItems div{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border-bottom:1px dashed #eee;padding:5px 0;}
+.qty-btn{background:#d4af37;border:none;color:white;padding:2px 6px;border-radius:4px;cursor:pointer;font-size:12px;}
+.remove{color:red;cursor:pointer;margin-left:5px;}
+.cart input, .cart textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ccc;}
+.cart button{width:100%;padding:10px;border:none;background:#25d366;color:white;border-radius:6px;cursor:pointer;}
+.cart-popup{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#333;color:white;padding:12px 25px;border-radius:30px;opacity:0;transition:0.3s;}
+.cart-popup.show{opacity:1;bottom:50px;}
+.contact-container{display:flex;flex-wrap:wrap;gap:30px;}
+.contact-info{flex:1;min-width:250px;}
+.contact-item{display:flex;margin-bottom:15px;}
+.contact-item i{font-size:20px;margin-right:10px;color:#d4af37;}
+.map{flex:1;min-width:250px;height:350px;}
+iframe{width:100%;height:100%;border:none;}
+.whatsapp{position:fixed;bottom:25px;right:25px;background:#25d366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:white;text-decoration:none;}
+footer{background:#111;color:#aaa;padding:40px 8%;text-align:center;}
+.review{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.1);}
 @media(max-width:768px){
-
-nav ul{
-position:absolute;
-top:70px;
-right:-100%;
-flex-direction:column;
-background:white;
-width:200px;
-padding:20px;
-transition:0.3s;
+nav ul{position:absolute;top:70px;right:-100%;flex-direction:column;background:white;width:200px;padding:20px;transition:0.3s;}
+nav ul.active{right:0;}
+nav a{color:black;}
+.hamburger{display:block;}
+.hero h1{font-size:32px;}
 }
-
-nav ul.active{
-right:0;
-}
-
-nav a{
-color:black;
-}
-
-.hamburger{
-display:block;
-}
-
-.hero h1{
-font-size:32px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
 <header id="header">
-
 <div class="logo">
 <img src="fv-logo.png" alt="FV Logo" class="logo-img">
 <span>Fancy Vastralaya</span>
 </div>
 <nav>
-
 <ul id="menu">
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
@@ -494,409 +101,221 @@ font-size:32px;
 <li><a href="#reviews">Reviews</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-
-<div class="hamburger" id="hamburger">
-<i class="fas fa-bars"></i>
-</div>
-
+<div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
 </nav>
 <div class="search-box">
 <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
 </div>
-  <div class="cart-icon" onclick="toggleCart()">
+<div class="cart-icon" onclick="toggleCart()">
 <i class="fas fa-shopping-cart"></i>
 <span id="cartCount">0</span>
 </div>
-
 </header>
 
 <!-- HERO -->
-
 <section class="hero" id="home">
-
 <div>
-
 <h1>Fancy Vastralaya</h1>
-
 <p>Your Trusted Clothing Store in Daudnagar</p>
-
 <a href="tel:9031845055" class="btn btn-primary">Call Now</a>
-
-<a href="https://maps.app.goo.gl/2xkFTabdmGa9ZrW67" target="_blank" class="btn btn-outline">
-Get Directions
-</a>
-
+<a href="https://maps.app.goo.gl/2xkFTabdmGa9ZrW67" target="_blank" class="btn btn-outline">Get Directions</a>
 </div>
-
 </section>
 
 <!-- ABOUT -->
-
 <section class="about" id="about">
-
-<div class="section-title">
-<h2>About Us</h2>
-</div>
-
-<p>
-Fancy Vastralaya is a trusted clothing store located in Daudnagar, Bihar.
-We offer quality sarees, fabrics for shirts and pants, towels, bedsheets,
-and mosquito nets at affordable prices.
-</p>
-
+<div class="section-title"><h2>About Us</h2></div>
+<p>Fancy Vastralaya is a trusted clothing store located in Daudnagar, Bihar. We offer quality sarees, fabrics for shirts and pants, towels, bedsheets, and mosquito nets at affordable prices.</p>
 </section>
 
 <!-- PRODUCTS -->
-
 <section id="products">
-
-<div class="section-title">
-<h2>Our Products</h2>
-</div>
-
+<div class="section-title"><h2>Our Products</h2></div>
 <div class="products-grid">
 
+<!-- Product Card Example -->
 <div class="product-card">
-<img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800">
+<img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800" alt="Saree">
 <div class="product-info">
 <h3>Sarees</h3>
 <p>Beautiful sarees for all occasions.</p>
-  <b>₹799</b><br><br>
-<button onclick="addToCart('Saree',799)"><i class="fas fa-cart-plus">Add to Cart</button>
+<b>₹799</b><br><br>
+<button onclick="addToCart('Saree',799)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card">
-<img src="https://m.media-amazon.com/images/I/61OLA2QriBL._SX679_.jpg?q=80&w=800" alt ="Shirt">
+<img src="https://m.media-amazon.com/images/I/61OLA2QriBL._SX679_.jpg?q=80&w=800" alt="Shirt">
 <div class="product-info">
 <h3>Shirt Cloth</h3>
 <p>Premium fabrics for shirts.</p>
-  <b>₹499</b><br><br>
-<button onclick="addToCart('Shirt Cloth',499)"><i class="fas fa-cart-plus">Add to Cart</button>
+<b>₹499</b><br><br>
+<button onclick="addToCart('Shirt Cloth',499)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
 <div class="product-card">
-<img src="https://m.media-amazon.com/images/I/71N9nh4-NkL._SX679_.jpg?q=80&w=800" alt="pant">
+<img src="https://m.media-amazon.com/images/I/71N9nh4-NkL._SX679_.jpg?q=80&w=800" alt="Pant">
 <div class="product-info">
 <h3>Pant Cloth</h3>
 <p>Durable pant fabrics.</p>
 <b>₹699</b><br><br>
-<button onclick="addToCart('Pant Cloth',699)"><i class="fas fa-cart-plus">Add to Cart</button>
+<button onclick="addToCart('Pant Cloth',699)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
-
 
 <div class="product-card">
-<img src="https://livpure.com/cdn/shop/articles/family-spending-time-together-outside_23-2148659464_77e2da7d-9d11-4cff-bd82-7f51fca535be.jpg?q=80&w=800" alt="towels">
+<img src="https://livpure.com/cdn/shop/articles/family-spending-time-together-outside_23-2148659464_77e2da7d-9d11-4cff-bd82-7f51fca535be.jpg?q=80&w=800" alt="Towels">
 <div class="product-info">
 <h3>Towels</h3>
 <p>Soft and comfortable towels.</p>
 <b>₹199</b><br><br>
-<button onclick="addToCart('Towels',199)"><i class="fas fa-cart-plus"></i>Add to Cart</button>
+<button onclick="addToCart('Towels',199)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
-
 
 <div class="product-card">
-<img src="https://www.theintellectbazaar.in/cdn/shop/products/product_main_image_1628665237_108-Mrn-zigzag-Blue..1.jpg?q=80&w=800" alt="bedsheets">
+<img src="https://www.theintellectbazaar.in/cdn/shop/products/product_main_image_1628665237_108-Mrn-zigzag-Blue..1.jpg?q=80&w=800" alt="Bedsheets">
 <div class="product-info">
 <h3>Bedsheets</h3>
 <p>Stylish and comfortable bedsheets.</p>
 <b>₹899</b><br><br>
-<button onclick="addToCart('Bedsheets',899)"><i class="fas fa-cart-plus"></i>Add to Cart</button>
+<button onclick="addToCart('Bedsheets',899)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
-
 
 <div class="product-card">
-<img src="https://m.media-amazon.com/images/I/61TLmrIM8+L._SX679_.jpg?q=80&w=800" alt="mosquito nets">
+<img src="https://m.media-amazon.com/images/I/61TLmrIM8+L._SX679_.jpg?q=80&w=800" alt="Mosquito Nets">
 <div class="product-info">
 <h3>Mosquito Nets</h3>
 <p>Safe protection for peaceful sleep.</p>
 <b>₹499</b><br><br>
-<button onclick="addToCart('Mosquito Nets',499)"><i class="fas fa-cart-plus">Add to Cart</button>
+<button onclick="addToCart('Mosquito Nets',499)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
 </div>
-
 </section>
-  <section id="reviews">
 
-<div class="section-title">
-<h2>Customer Reviews</h2>
-</div>
-
+<!-- REVIEWS -->
+<section id="reviews">
+<div class="section-title"><h2>Customer Reviews</h2></div>
 <div class="products-grid">
-
-<div class="review">
-⭐⭐⭐⭐⭐ <br>
-Very good clothes and price.
+<div class="review">⭐⭐⭐⭐⭐ <br>Very good clothes and price.</div>
+<div class="review">⭐⭐⭐⭐ <br>Nice bedsheets and fabrics.</div>
+<div class="review">⭐⭐⭐⭐⭐ <br>Best shop in Daudnagar.</div>
 </div>
-
-<div class="review">
-⭐⭐⭐⭐ <br>
-Nice bedsheets and fabrics.
-</div>
-
-<div class="review">
-⭐⭐⭐⭐⭐ <br>
-Best shop in Daudnagar.
-</div>
-
-</div>
-
 </section>
-
 
 <!-- CONTACT -->
-
 <section id="contact">
-
-<div class="section-title">
-<h2>Contact Us</h2>
-</div>
-
+<div class="section-title"><h2>Contact Us</h2></div>
 <div class="contact-container">
 
 <div class="contact-info">
+<div class="contact-item"><i class="fa fa-location-dot"></i>
+<div><b>Address</b><p>2, Daudnagar - Barun Rd, near SBI, Chawal Bazar, Daudnagar, Bihar</p></div></div>
 
-<div class="contact-item">
-<i class="fa fa-location-dot"></i>
-<div>
-<b>Address</b>
-<p>2, Daudnagar - Barun Rd, near SBI, Chawal Bazar, Daudnagar, Bihar</p>
-</div>
-</div>
+<div class="contact-item"><i class="fa fa-phone"></i>
+<div><b>Phone</b><p>9031845055</p></div></div>
 
-<div class="contact-item">
-<i class="fa fa-phone"></i>
-<div>
-<b>Phone</b>
-<p>9031845055</p>
-</div>
-</div>
-  
-<div class="contact-item">
-<i class="fa fa-envelope"></i>
-<div>
-<b>Email</b>
-<p>naveenjifancy@gmail.com</p>
-</div>
+<div class="contact-item"><i class="fa fa-envelope"></i>
+<div><b>Email</b><p>naveenjifancy@gmail.com</p></div></div>
 </div>
 
-</div>
 <h2>Our Location</h2>
 <div class="map">
-
-<iframe 
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.9894782021065!2d84.40285477456051!3d25.034431138275693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398d0fad1348b8b1%3A0xf96f9ca558027c10!2sFancy%20Vastralaya!5e0!3m2!1sen!2sin!4v1773301673475!5m2!1sen!2sin"
-width="100%" 
-height="350"
-style="border:0;"
-allowfullscreen=""
-loading="lazy">
-</iframe>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.9894782021065!2d84.40285477456051!3d25.034431138275693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398d0fad1348b8b1%3A0xf96f9ca558027c10!2sFancy%20Vastralaya!5e0!3m2!1sen!2sin!4v1773301673475!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
 </div>
-
 </section>
-  
+
+<!-- CART -->
 <div class="cart">
-
-<h3>
-Cart
-<span onclick="toggleCart()" style="float:right;cursor:pointer;">✖</span>
-</h3>
-
+<h3>Cart <span onclick="toggleCart()" style="float:right;cursor:pointer;">✖</span></h3>
 <div id="cartItems">No items</div>
-
 <p><b>Total: ₹<span id="total">0</span></b></p>
-
-<input id="name" placeholder="Your Name"
-pattern="[A-Za-z ]+" title="Only letters allowed" required><br><br>
-
-<input id="phone" placeholder="Phone Number"
-pattern="[0-9]{10}" maxlength="10"
-title="Enter 10 digit number" required><br><br>
-
+<input id="name" placeholder="Your Name" pattern="[A-Za-z ]+" title="Only letters allowed" required><br><br>
+<input id="phone" placeholder="Phone Number" pattern="[0-9]{10}" maxlength="10" title="Enter 10 digit number" required><br><br>
 <textarea id="address" placeholder="Delivery Address" required></textarea><br><br>
-
-<button onclick="payUPI()">Pay with UPI</button>
+<button onclick="orderWhatsApp()">Order on WhatsApp</button>
 
 </div>
 
-<div id="cartPopup" class="cart-popup">
-Item added to cart ✅
-</div>
+<div id="cartPopup" class="cart-popup">Item added to cart ✅</div>
 
 <footer>
-
 <p>© <span id="year"></span> Fancy Vastralaya | Daudnagar, Bihar</p>
-  <div>
-Visitors: <span id="visits"></span>
-</div>
-
-
+<div>Visitors: <span id="visits"></span></div>
 </footer>
 
-<a href="https://wa.me/919031845055" class="whatsapp">
-<i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/919031845055" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-let cart=[]
+// CART LOGIC
+let cart=[];
 
 function addToCart(name,price){
-
-let existing=cart.find(p=>p.name===name)
-
-if(existing){
-existing.qty+=1
-}else{
-cart.push({name,price,qty:1})
-}
-
-updateCart()
-
-document.getElementById("cartCount").innerText=cart.length
-
-document.querySelector(".cart").classList.add("show")
-
-showPopup()
-
+  let existing=cart.find(p=>p.name===name);
+  if(existing){ existing.qty+=1 } else { cart.push({name,price,qty:1}) }
+  updateCart();
+  document.getElementById("cartCount").innerText=cart.length;
+  document.querySelector(".cart").classList.add("show");
+  showPopup();
 }
 
 function updateCart(){
-
-let items=document.getElementById("cartItems")
-let total=0
-
-if(cart.length==0){
-items.innerHTML="No items"
-}else{
-
-items.innerHTML=""
-
-cart.forEach((i,index)=>{
-
-let div=document.createElement("div")
-
-let t=i.price*i.qty
-
-div.innerHTML=
-i.name+
-" <button class='qty-btn' onclick='changeQty("+index+",-1)'>-</button>"+
-i.qty+
-"<button class='qty-btn' onclick='changeQty("+index+",1)'>+</button>"+
-" ₹"+t+
-" <span class='remove' onclick='removeItem("+index+")'>❌</span>"
-
-items.appendChild(div)
-
-total+=t
-
-})
-
-}
-
-document.getElementById("total").innerText=total
-
+  let items=document.getElementById("cartItems");
+  let total=0;
+  if(cart.length==0){ items.innerHTML="No items"; }
+  else{
+    items.innerHTML="";
+    cart.forEach((i,index)=>{
+      let div=document.createElement("div");
+      let t=i.price*i.qty;
+      div.innerHTML=i.name+
+        " <button class='qty-btn' onclick='changeQty("+index+",-1)'>-</button>"+
+        i.qty+
+        "<button class='qty-btn' onclick='changeQty("+index+",1)'>+</button>"+
+        " ₹"+t+
+        " <span class='remove' onclick='removeItem("+index+")'>❌</span>";
+      items.appendChild(div);
+      total+=t;
+    });
+  }
+  document.getElementById("total").innerText=total;
 }
 
 function changeQty(index,amount){
-
-cart[index].qty+=amount
-
-if(cart[index].qty<=0){
-cart.splice(index,1)
+  cart[index].qty+=amount;
+  if(cart[index].qty<=0){ cart.splice(index,1) }
+  updateCart();
 }
 
-updateCart()
-
-}
-
-function removeItem(index){
-
-cart.splice(index,1)
-
-updateCart()
-
-}
+function removeItem(index){ cart.splice(index,1); updateCart(); }
 
 function showPopup(){
-
-let popup=document.getElementById("cartPopup")
-
-popup.classList.add("show")
-
-setTimeout(()=>{
-popup.classList.remove("show")
-},2000)
-
+  let popup=document.getElementById("cartPopup");
+  popup.classList.add("show");
+  setTimeout(()=>{ popup.classList.remove("show") },2000);
 }
-
-if(cart.length==0){
-
-items.innerHTML="No items"
-
-}else{
-
-items.innerHTML=""
-
-cart.forEach(i=>{
-
-let div=document.createElement("div")
-
-let t=i.price*i.qty
-
-div.innerHTML=i.name+" x"+i.qty+" - ₹"+t
-
-items.appendChild(div)
-
-total+=t
-
-})
-
-}
-
-document.getElementById("total").innerText=total
-
-}
-
-function payUPI(){
+function orderWhatsApp(){
 
 let name=document.getElementById("name").value.trim()
 let phone=document.getElementById("phone").value.trim()
 let address=document.getElementById("address").value.trim()
 
-let namePattern=/^[A-Za-z ]+$/
-let phonePattern=/^[0-9]{10}$/
-
-if(!namePattern.test(name)){
-alert("Name must contain only letters")
-return
-}
-
-if(!phonePattern.test(phone)){
-alert("Phone number must be 10 digits")
-return
-}
-
-if(address==""){
-alert("Please enter delivery address")
-return
-}
-
-if(cart.length==0){
-alert("Cart empty")
-return
-}
+if(!/^[A-Za-z ]+$/.test(name)){ alert("Name must contain only letters"); return; }
+if(!/^[0-9]{10}$/.test(phone)){ alert("Phone number must be 10 digits"); return; }
+if(address==""){ alert("Please enter delivery address"); return; }
+if(cart.length==0){ alert("Cart empty"); return; }
 
 let total=0
 
-let msg="Hello Fancy Vastralaya,%0AName: "+name+"%0APhone: "+phone+"%0AAddress: "+address+"%0A%0AOrder:%0A"
+let msg="Hello Fancy Vastralaya,%0A"
+msg+="Name: "+name+"%0A"
+msg+="Phone: "+phone+"%0A"
+msg+="Address: "+address+"%0A%0A"
+msg+="Order:%0A"
 
 cart.forEach(i=>{
 msg+=i.name+" x"+i.qty+" - ₹"+(i.price*i.qty)+"%0A"
@@ -905,96 +324,54 @@ total+=i.price*i.qty
 
 msg+="Total: ₹"+total
 
-let upi="9031845055@ybl"
-
-let upiURL="upi://pay?pa="+upi+"&pn=Fancy%20Vastralaya&am="+total+"&cu=INR"
-
-window.open(upiURL)
-
-setTimeout(()=>{
 window.open("https://wa.me/919031845055?text="+msg)
-},5000)
 
 }
 
+
+
+// SEARCH
 function searchProducts(){
-
-let input=document.getElementById("searchInput").value.toLowerCase()
-
-let products=document.querySelectorAll(".product-card")
-
-products.forEach(p=>{
-
-let text=p.innerText.toLowerCase()
-
-if(text.includes(input)){
-p.style.display="block"
-}else{
-p.style.display="none"
+  let input=document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".product-card").forEach(p=>{
+    p.style.display=p.innerText.toLowerCase().includes(input)?"block":"none";
+  });
 }
 
-})
+// VISITS
+if(!localStorage.getItem("visits")){ localStorage.setItem("visits",1) } else { localStorage.setItem("visits",parseInt(localStorage.getItem("visits"))+1) }
+document.getElementById("visits").innerText=localStorage.getItem("visits");
 
-}
-
-if(!localStorage.getItem("visits")){
-localStorage.setItem("visits",1)
-}else{
-let v=parseInt(localStorage.getItem("visits"))
-localStorage.setItem("visits",v+1)
-}
-
-document.getElementById("visits").innerText=localStorage.getItem("visits")
-
+// HERO SLIDES
 let heroImages=[
 "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600",
 "https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=1600",
 "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1600"
-]
+];
+let heroIndex=0;
+setInterval(()=>{
+  heroIndex++; if(heroIndex>=heroImages.length) heroIndex=0;
+  document.querySelector(".hero").style.backgroundImage=
+  "linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('"+heroImages[heroIndex]+"')";
+},3000);
 
-let heroIndex=0
-
-setInterval(function(){
-
-heroIndex++
-
-if(heroIndex>=heroImages.length){
-heroIndex=0
-}
-
-document.querySelector(".hero").style.backgroundImage=
-"linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('"+heroImages[heroIndex]+"')"
-
-},3000)
-
+// YEAR
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// HAMBURGER
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
+hamburger.onclick = ()=>{ menu.classList.toggle("active"); };
 
-hamburger.onclick = () => {
-menu.classList.toggle("active");
-};
-
-window.addEventListener("scroll", function(){
-
-const header = document.getElementById("header");
-
-if(window.scrollY > 50){
-header.classList.add("scrolled");
-}else{
-header.classList.remove("scrolled");
-}
-
+// SCROLL HEADER
+window.addEventListener("scroll",()=>{
+  const header=document.getElementById("header");
+  if(window.scrollY>50){ header.classList.add("scrolled") } else { header.classList.remove("scrolled") }
 });
-  function toggleCart(){
-document.querySelector(".cart").classList.toggle("show")
-}
 
+// TOGGLE CART
+function toggleCart(){ document.querySelector(".cart").classList.toggle("show") }
 </script>
 
 </body>
 </html>
-
-
-
