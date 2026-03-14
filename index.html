@@ -1,129 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fancy Vastralaya | Online Store</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Fancy Vastralaya | Clothing Store</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 
-body{font-family:Poppins;background:#f5f5f5}
-
-header{
-background:#111;
-color:white;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center
+body{
+font-family:'Poppins',sans-serif;
+background:#f8f6f2;
+color:#333
 }
 
-header h1{font-size:22px}
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:white;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.1)
+}
 
-.search input{
-padding:8px 12px;
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:22px;
+font-weight:600
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none
+}
+
+nav a{
+text-decoration:none;
+color:black;
+font-weight:500
+}
+
+.search-box input{
+padding:6px 12px;
 border-radius:20px;
-border:none;
-width:180px
+border:1px solid #ccc
 }
 
 .hero{
-height:320px;
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("hero.png");
 background-size:cover;
 background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
-color:white;
-font-size:32px;
-font-weight:600
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:25px
-}
-
-.product{
-background:white;
-border-radius:12px;
-padding:15px;
 text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.1)
+color:white
 }
 
-.product img{
+.hero h1{font-size:50px}
+
+section{padding:80px 8%}
+
+.section-title{text-align:center;margin-bottom:40px}
+
+.products-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px
+}
+
+.product-card{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.08)
+}
+
+.product-card img{
 width:100%;
-height:180px;
-object-fit:cover;
-border-radius:8px
+height:200px;
+object-fit:cover
 }
 
-.price{font-weight:600;margin:6px 0}
-
-.rating{color:#f1c40f;font-size:14px}
+.product-info{
+padding:15px;
+text-align:center
+}
 
 button{
-padding:8px 14px;
-border:none;
-border-radius:6px;
+padding:10px 15px;
 background:#d4af37;
+border:none;
 color:white;
-cursor:pointer;
-margin-top:6px
+border-radius:5px;
+cursor:pointer
 }
 
 .cart{
 position:fixed;
-top:80px;
 right:20px;
-width:270px;
+top:100px;
 background:white;
 padding:15px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2)
-}
-
-.cart-item{font-size:14px;margin-bottom:6px}
-
-.qty-btn{background:#333;margin-left:4px}
-
-.remove{background:#e74c3c;margin-left:6px}
-
-.checkout{background:#25d366;width:100%;margin-top:10px}
-
-.form{margin-top:10px}
-
-.form input{
-width:100%;
-padding:8px;
-margin-bottom:6px;
-border:1px solid #ccc;
-border-radius:6px
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+width:250px
 }
 
 footer{
 background:#111;
 color:#aaa;
-text-align:center;
-padding:15px;
-margin-top:30px
+padding:40px;
+text-align:center
 }
 
-.badge{
-background:red;
-color:white;
-padding:3px 6px;
-border-radius:4px;
-font-size:11px;
-position:absolute;
-margin:5px
+.review{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1)
 }
 
 </style>
@@ -132,188 +141,270 @@ margin:5px
 <body>
 
 <header>
-<h1>Fancy Vastralaya</h1>
-<div class="search">
-<input type="text" placeholder="Search products..." onkeyup="searchProducts()" id="search">
+
+<div class="logo">
+<img src="fv-logo.png" height="40">
+Fancy Vastralaya
 </div>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
+</div>
+
 </header>
 
-<div class="hero" id="hero">Premium Clothing Collection</div>
+<section class="hero" id="home">
+<h1>Fancy Vastralaya</h1>
+</section>
 
-<div class="products" id="products">
+<section id="products">
 
-<div class="product">
+<div class="section-title">
+<h2>Our Products</h2>
+</div>
+
+<div class="products-grid">
+
+<div class="product-card">
 <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800">
+<div class="product-info">
 <h3>Saree</h3>
-<div class="rating">⭐⭐⭐⭐☆</div>
-<div class="price">₹799</div>
+<p>Beautiful sarees</p>
+<b>₹799</b><br><br>
 <button onclick="addToCart('Saree',799)">Add to Cart</button>
 </div>
+</div>
 
-<div class="product">
+<div class="product-card">
 <img src="https://m.media-amazon.com/images/I/61OLA2QriBL._SX679_.jpg">
+<div class="product-info">
 <h3>Shirt Cloth</h3>
-<div class="rating">⭐⭐⭐⭐⭐</div>
-<div class="price">₹499</div>
+<p>Premium fabric</p>
+<b>₹499</b><br><br>
 <button onclick="addToCart('Shirt Cloth',499)">Add to Cart</button>
 </div>
+</div>
 
-<div class="product">
+<div class="product-card">
 <img src="https://m.media-amazon.com/images/I/71N9nh4-NkL._SX679_.jpg">
+<div class="product-info">
 <h3>Pant Cloth</h3>
-<div class="rating">⭐⭐⭐⭐☆</div>
-<div class="price">₹699</div>
+<p>Durable fabric</p>
+<b>₹699</b><br><br>
 <button onclick="addToCart('Pant Cloth',699)">Add to Cart</button>
 </div>
-
-<div class="product">
-<img src="https://m.media-amazon.com/images/I/61TLmrIM8+L._SX679_.jpg">
-<h3>Mosquito Net</h3>
-<div class="rating">⭐⭐⭐⭐☆</div>
-<div class="price">₹399</div>
-<button onclick="addToCart('Mosquito Net',399)">Add to Cart</button>
 </div>
 
 </div>
+
+</section>
+
+<section id="reviews">
+
+<div class="section-title">
+<h2>Customer Reviews</h2>
+</div>
+
+<div class="products-grid">
+
+<div class="review">
+⭐⭐⭐⭐⭐ <br>
+Very good clothes and price.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐ <br>
+Nice bedsheets and fabrics.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐ <br>
+Best shop in Daudnagar.
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="section-title">
+<h2>Contact</h2>
+</div>
+
+<p style="text-align:center">
+Phone: 9031845055 <br>
+Email: naveenjifancy@gmail.com
+</p>
+
+</section>
 
 <div class="cart">
+
 <h3>Cart</h3>
+
 <div id="cartItems">No items</div>
+
 <p><b>Total: ₹<span id="total">0</span></b></p>
 
-<div class="form">
-<input id="name" placeholder="Your Name">
-<input id="phone" placeholder="Phone Number">
-<input id="address" placeholder="Delivery Address">
-</div>
+<input id="name" placeholder="Your Name" pattern="[A-Za-z ]+" title="Only letters"><br><br>
 
-<button class="checkout" onclick="payUPI()">Pay with UPI</button>
+<input id="phone" placeholder="Phone Number" pattern="[0-9]{10}" title="10 digits"><br><br>
+
+<button onclick="payUPI()">Pay with UPI</button>
+
 </div>
 
 <footer>
-© <span id="year"></span> Fancy Vastralaya | Daudnagar
+
+<p>© <span id="year"></span> Fancy Vastralaya</p>
+
+<div>
+Visitors: <span id="visits"></span>
+</div>
+
 </footer>
 
 <script>
 
-let cart=[];
+document.getElementById("year").innerText=new Date().getFullYear()
+
+let cart=[]
 
 function addToCart(name,price){
-let existing=cart.find(p=>p.name===name);
+
+let existing=cart.find(p=>p.name===name)
 
 if(existing){existing.qty+=1}
 else{cart.push({name,price,qty:1})}
 
-updateCart();
-}
+updateCart()
 
-function changeQty(name,delta){
-let item=cart.find(p=>p.name===name);
-item.qty+=delta;
-
-if(item.qty<=0){cart=cart.filter(p=>p.name!==name)}
-
-updateCart();
-}
-
-function removeItem(name){
-cart=cart.filter(p=>p.name!==name);
-updateCart();
 }
 
 function updateCart(){
 
-let items=document.getElementById("cartItems");
-let total=0;
+let items=document.getElementById("cartItems")
+let total=0
 
-if(cart.length===0){
-items.innerHTML="No items";
+if(cart.length==0){
+
+items.innerHTML="No items"
+
 }else{
-items.innerHTML="";
+
+items.innerHTML=""
 
 cart.forEach(i=>{
 
-let div=document.createElement("div");
-div.className="cart-item";
+let div=document.createElement("div")
 
-let itemTotal=i.price*i.qty;
+let t=i.price*i.qty
 
-div.innerHTML=`${i.name} x${i.qty} - ₹${itemTotal}
-<button class='qty-btn' onclick="changeQty('${i.name}',1)">+</button>
-<button class='qty-btn' onclick="changeQty('${i.name}',-1)">-</button>
-<button class='remove' onclick="removeItem('${i.name}')">x</button>`;
+div.innerHTML=i.name+" x"+i.qty+" - ₹"+t
 
-items.appendChild(div);
+items.appendChild(div)
 
- total+=itemTotal;
-});
+total+=t
+
+})
+
 }
 
-document.getElementById("total").innerText=total;
+document.getElementById("total").innerText=total
+
 }
 
 function payUPI(){
 
-if(cart.length===0){alert("Cart empty");return}
+if(cart.length==0){alert("Cart empty");return}
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let address=document.getElementById("address").value;
+let total=0
 
-if(!name||!phone||!address){alert("Fill name phone address");return}
-
-let total=0;
-let msg="Hello Fancy Vastralaya,%0AOrder Details:%0A";
+let msg="Hello Fancy Vastralaya,%0AOrder:%0A"
 
 cart.forEach(i=>{
-let itemTotal=i.price*i.qty;
-msg+=`${i.name} x${i.qty} - ₹${itemTotal}%0A`;
- total+=itemTotal;
-});
 
-msg+=`Total Paid: ₹${total}%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}`;
+msg+=i.name+" x"+i.qty+" - ₹"+(i.price*i.qty)+"%0A"
 
-let upi="9031845055@ybl";
+total+=i.price*i.qty
 
-let upiURL=`upi://pay?pa=${upi}&pn=Fancy%20Vastralaya&am=${total}&cu=INR`;
+})
 
-window.open(upiURL);
+msg+="Total: ₹"+total
+
+let upi="9031845055@ybl"
+
+let upiURL="upi://pay?pa="+upi+"&pn=Fancy%20Vastralaya&am="+total+"&cu=INR"
+
+window.open(upiURL)
 
 setTimeout(()=>{
-window.open(`https://wa.me/919031845055?text=${msg}`);
-},5000);
+
+window.open("https://wa.me/919031845055?text="+msg)
+
+},5000)
+
 }
 
 function searchProducts(){
-let input=document.getElementById("search").value.toLowerCase();
-let products=document.querySelectorAll(".product");
+
+let input=document.getElementById("searchInput").value.toLowerCase()
+
+let products=document.querySelectorAll(".product-card")
 
 products.forEach(p=>{
-let text=p.innerText.toLowerCase();
-if(text.includes(input)){p.style.display="block"}
-else{p.style.display="none"}
-});
+
+let text=p.innerText.toLowerCase()
+
+if(text.includes(input)){
+p.style.display="block"
+}else{
+p.style.display="none"
 }
 
-// hero slider
+})
+
+}
+
+if(!localStorage.getItem("visits")){
+localStorage.setItem("visits",1)
+}else{
+let v=parseInt(localStorage.getItem("visits"))
+localStorage.setItem("visits",v+1)
+}
+
+document.getElementById("visits").innerText=localStorage.getItem("visits")
+
 let heroImages=[
 "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600",
 "https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=1600",
 "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1600"
-];
+]
 
-let index=0;
+let heroIndex=0
 
-function changeHero(){
-document.getElementById("hero").style.backgroundImage=`url(${heroImages[index]})`;
-index++;
-if(index>=heroImages.length){index=0}
+setInterval(function(){
+
+heroIndex++
+
+if(heroIndex>=heroImages.length){
+heroIndex=0
 }
 
-setInterval(changeHero,3000);
-changeHero();
+document.querySelector(".hero").style.backgroundImage=
+"linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('"+heroImages[heroIndex]+"')"
 
-document.getElementById("year").innerText=new Date().getFullYear();
+},3000)
 
 </script>
 
