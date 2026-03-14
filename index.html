@@ -60,9 +60,49 @@ section{padding:80px 8%;}
 .product-info button{background:#d4af37;color:white;border:none;padding:10px 18px;border-radius:25px;font-size:14px;cursor:pointer;transition:0.3s;}
 .product-info button:hover{background:#b8962f;transform:scale(1.05);}
 .cart{position:fixed;right:20px;top:-400px;width:280px;background:white;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);transition:0.4s;z-index:1000;}
+.cart{
+position:fixed;
+right:20px;
+top:-500px;
+width:420px;
+max-height:500px;
+overflow-y:auto;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+transition:0.4s;
+z-index:1000;
+}
+
 .cart.show{top:90px;}
-#cartItems div{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border-bottom:1px dashed #eee;padding:5px 0;}
-.qty-btn{background:#d4af37;border:none;color:white;padding:2px 6px;border-radius:4px;cursor:pointer;font-size:12px;}
+
+#cartItems div{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+margin-bottom:10px;
+border-bottom:1px dashed #eee;
+padding:6px 0;
+flex-wrap:nowrap;
+}
+
+.qty-box{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.qty-btn{
+background:#28c76f;
+border:none;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
 .remove{color:red;cursor:pointer;margin-left:5px;}
 .cart input, .cart textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ccc;}
 .cart button{width:100%;padding:10px;border:none;background:#25d366;color:white;border-radius:6px;cursor:pointer;}
@@ -272,12 +312,18 @@ function updateCart(){
     cart.forEach((i,index)=>{
       let div=document.createElement("div");
       let t=i.price*i.qty;
-      div.innerHTML=i.name+
-        " <button class='qty-btn' onclick='changeQty("+index+",-1)'>-</button>"+
-        i.qty+
-        "<button class='qty-btn' onclick='changeQty("+index+",1)'>+</button>"+
-        " ₹"+t+
-        " <span class='remove' onclick='removeItem("+index+")'>❌</span>";
+      div.innerHTML =
+"<span style='flex:1'>"+i.name+"</span>" +
+
+"<div class='qty-box'>" +
+"<button class='qty-btn' onclick='changeQty("+index+",-1)'>-</button>" +
+"<span>"+i.qty+"</span>" +
+"<button class='qty-btn' onclick='changeQty("+index+",1)'>+</button>" +
+"</div>" +
+
+"<span>₹"+t+"</span>" +
+
+"<span class='remove' onclick='removeItem("+index+")'>❌</span>";
       items.appendChild(div);
       total+=t;
     });
